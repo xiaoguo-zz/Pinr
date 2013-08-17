@@ -1,0 +1,90 @@
+{#
+   Within the "raw" tags, no templating is used. Because AngularJS uses {{}} for it's templates,
+   which Jinja also uses, we have a conflict. To solve this conflict, we tell Jinja to not do any
+   rendering where we're putting templates for AngularJS.
+#}
+
+{% raw %}
+
+
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li ng-click="showMenu('#add-text-menu')">Add Text</li>
+        <li ng-click="showMenu('#add-image-menu')">Add Image</li>
+        <li ng-click="showMenu('#add-video-menu')">Add Youtube</li>
+        <li ng-click="showMenu('#filter-menu')">Filter</li>
+    </ul>
+</nav>
+
+
+<!-- Dropdown Menu Forms -->
+<div class="dropdown" id="add-text-menu">
+    <form ng-submit="addText()">
+        <label>Text</label>
+        <textarea name="entry" ng-model="text"></textarea>
+        <input type="submit" />
+    </form>
+</div>
+
+<div class="dropdown" id="add-image-menu">
+    <form ng-submit="addImage()">
+        <label>Image Url</label>
+        <input type="text" ng-model="image_url" >
+        <label>Caption</label>
+        <textarea name="caption" ng-model="image_caption"></textarea>
+        <input type="submit" />
+    </form>
+</div>
+
+<div class="dropdown" id="add-video-menu">
+    <form ng-submit="addVideo()">
+        <label>Youtube Url</label>
+        <input type="text" ng-model="video_url" >
+        <input type="submit" />
+    </form>
+</div>
+
+<div class="dropdown" id="filter-menu">
+    <label>Show:</label>
+    <input type="checkbox" ng-model="filter_text">text</input>
+    <br/>
+    <input type="checkbox" ng-model="filter_image">images</input>
+    <br/>
+    <input type="checkbox" ng-model="filter_video">videos</input>
+</div>
+
+
+<!-- Display items -->
+<div class="items">
+<div class="item  item-{{item.type}}" 
+    ng-repeat="item in items | filter:isActive"
+    ng-click="$parent.showThis = true; $parent.selection = item">
+    <div ng-switch on="item.type">
+        <div ng-switch-when="text">{{item.text}}</div>
+        <div ng-switch-when="image">
+            <img src="{{item.image_url}}" 
+                 width=300 height=200></div>
+        <div ng-switch-when="video">
+            <img src= 
+                 "http://img.youtube.com/vi/{{item.video_id}}/0.jpg"
+                 width=300 height=200></img>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox-controls" ng-show="showThis">
+        <a href="#" ng-click="remove(selection)">delete</a>
+        <label>IP Address:</label> <input type="text" ng-model="ip_addr" ng-click="false" /> <button ng-click="share(selection)">Share</button>
+</div>
+<div id="lightbox" ng-show="showThis" ng-click="showThis=false" style="margin-top: 50px;">
+    <div id="lightbox-content" ng-switch on="selection.type">
+        <span ng-switch-when="text" class="text-content">{{selection.text}}</span>
+        <div ng-switch-when="image"><p>{{selection.image_caption}}</p><img src="{{selection.image_url}}"></img></div>
+        <div ng-switch-when="video"><iframe width="560" height="315" src="http://www.youtube.com/embed/{{selection.video_id}}?rel=0" frameborder="0" allowfullscreen></iframe></div>
+    </div>
+</div>
+
+{% endraw %}

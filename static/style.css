@@ -1,0 +1,267 @@
+/**** Custom styling begins here ****/
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #333;
+}
+
+nav {
+    background: #CCC;
+    display: block;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIgc3RvcC1vcGFjaXR5PSIwLjkiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2NjY2NjYyIgc3RvcC1vcGFjaXR5PSIwLjUiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+    background: -moz-linear-gradient(top, rgba(204,204,204,0.9) 0%, rgba(204,204,204,0.5) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(204,204,204,0.9)), color-stop(100%,rgba(204,204,204,0.5))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(204,204,204,0.9) 0%,rgba(204,204,204,0.5) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(204,204,204,0.9) 0%,rgba(204,204,204,0.5) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(204,204,204,0.9) 0%,rgba(204,204,204,0.5) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(204,204,204,0.9) 0%,rgba(204,204,204,0.5) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6cccccc', endColorstr='#80cccccc',GradientType=0 ); /* IE6-8 */
+    box-shadow: 0 2px 5px rgba(0,0,0,.5);
+    z-index: 99;
+}
+
+nav>ul {
+    padding: 0;
+    margin: 0;
+}
+
+
+nav>ul>li {
+    padding: 0;
+    margin: 0;
+    float: left;
+    width: 120px;
+    text-align: center;
+    list-style-type: none;
+    line-height: 40px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, Ubuntu;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.dropdown {
+    display: none;
+    width: 280px;
+    position: absolute;
+    z-index: 9;
+    padding: 10px;
+    background: rgba(130,130,130,.95);
+    box-shadow: 0 2px 5px rgba(0,0,0,.5);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    z-index: 99;
+}
+
+#add-text-menu {
+    top: 40px;
+    left: 10px;
+}
+
+#add-image-menu {
+    top: 40px;
+    left: 130px;
+}
+#add-video-menu {
+    top: 40px;
+    left: 250px;
+}
+#filter-menu {
+    top: 40px;
+    left: 370px;
+    text-align: left;
+    font-size: 16px;
+    font-family: Helvetica, Ubuntu, Arial;
+    font-weight: bold;
+}
+#sort-menu {
+    top: 40px;
+    left: 490px;
+    height: 300px;
+}
+
+.dropdown form {
+    text-align: right;
+}
+
+
+.dropdown textarea, .dropdown input[type=text] {
+    width: 280px;
+    clear: both;
+    border: none;
+    box-sizing: border-box;
+    background: #555;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Helvetica, Ubuntu, Arial;
+    font-weight: bold;
+    padding: 5px 10px;
+    letter-spacing: 1px;
+}
+
+.dropdown textarea {
+    height: 120px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.7);
+}
+
+.dropdown input[type=text] {
+    margin-bottom: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.7);
+}
+
+.dropdown>header {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Helvetica, Ubuntu, Arial, sans;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 5px;
+    display: none;
+}
+
+.items {
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.item {
+    width: 280px;
+    min-height: 180px;
+    padding: 10px;
+    border: solid black 1px;
+    margin: 0;
+    background: #AAA;
+    box-shadow: 0 2px 2px black;
+    font-size: 20px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    font-family: Helvetica, Ubuntu, Arial, sans;
+    overflow: hidden;
+    margin: 10px;
+    float: left;
+}
+
+.item-video {
+    padding: 0;
+    width: 300px;
+    height: 200px;
+}
+
+.item-image {
+    padding: 0;
+    width: 300px;
+    height: 200px;
+}
+
+input[type=submit] {
+    border-radius: 6px;
+    background: #19B6EE; 
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    padding: 8px 16px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.3);
+    margin-top: 5px;
+
+}
+
+.dropdown label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Helvetica, Ubuntu, Arial, sans;
+    padding-top: 5px;
+}
+
+
+#lightbox-controls {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background: rgba(205,205,205,.9);
+    z-index: 999;
+}
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(205,205,205,.9);
+    z-index: 999;
+}
+
+#lightbox-content {
+    text-align: center;
+}
+
+#lightbox-content .text-content {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: Helvetica, Ubuntu, Arial, sans;
+}
+
+
+/**** Isotope begins here ****/
+
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
